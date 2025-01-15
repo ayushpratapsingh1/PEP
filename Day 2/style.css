@@ -32,29 +32,51 @@ input[type="password"] {
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 1rem;
 }
 input:focus {
     outline: none;
-    border-color: #16678a;
+    border: 2px solid #2e86ab;
 }
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
 button {
     padding: 10px;
     margin: 10px 0;
-    background-color: #2e86ab;
-    color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-size: 1rem;
 }
 
-button:hover {
+#submit {
+    background-color: #2e86ab;
+    color: #fff;
+}
+
+#submit:hover {
     background-color: #1b5f7d;
+}
+
+#reset {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+#reset:hover {
+    background-color: #c0392b;
 }
 
 .output {
     margin-top: 20px;
     text-align: center;
-    color: #333;
+    color: #03ad31;
+    font-weight: bold;
+    font-size: 1rem;
 }

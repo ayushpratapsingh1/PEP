@@ -6,12 +6,15 @@ const deposit = document.querySelector("#deposit");
 const withdraw = document.querySelector("#withdraw");
 const submit = document.querySelector("#submit");
 const output = document.querySelector("#output");
+const reset = document.querySelector("#reset");
 let amount = 0;
 
 submit.addEventListener("click", (e) => {
     e.preventDefault();
     let messages = [];
-
+    output.style.border = "3px solid #2e86ab";
+    output.style.borderRadius = "10px";
+    output.style.padding = "10px";
     if (accno.value.length !== 10) {
         messages.push("Account Number should be 10 digits");
     }
@@ -33,6 +36,7 @@ submit.addEventListener("click", (e) => {
     }
 
     if (messages.length > 0) {
+        output.style.color = "red";
         output.innerHTML = messages.join("<br>");
         return;
     }
@@ -52,8 +56,24 @@ submit.addEventListener("click", (e) => {
     }
 
     if (messages.length > 0) {
+        output.style.color = "red";
         output.innerHTML = messages.join("<br>");
     } else {
+        output.style.color = "green";
         output.innerHTML = `Account Number: ${accno.value}<br>Email: ${email.value}<br>Amount: ${amount}`;
     }
+});
+
+reset.addEventListener("click", () => {
+    accno.value = "";
+    email.value = "";
+    password.value = "";
+    confirmPassword.value = "";
+    deposit.checked = false;
+    withdraw.checked = false;
+    document.querySelector("#amount").value = "";
+    amount = 0;
+    output.innerHTML = "";
+    output.style.border = "none";
+    output.style.padding = "0";
 });
