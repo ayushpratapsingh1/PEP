@@ -1,0 +1,10 @@
+.Hero {
+    color: brown;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: beige;
+    display: flex;
+    height: 90vh;
+}

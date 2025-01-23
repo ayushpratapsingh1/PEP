@@ -1,0 +1,27 @@
+.Header{
+    color: beige;
+    background-color: brown;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Header ul{
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.Header li{
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+.Header li:hover{
+    background-color: beige;
+    color: brown;
+}
