@@ -1,144 +1,34 @@
 import React from "react";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  BarElement,
-  ArcElement,
-  Title,
-  Tooltip,
-  Legend
-} from "chart.js";
-import { Bar, Doughnut, Line } from "react-chartjs-2";
-import "./Visuals.css";
-import revenueData from "../Data/revenueData.json";
-import sourceData from "../Data/sourceData.json";
-
-// Register ChartJS components
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  BarElement,
-  ArcElement,
-  Title,
-  Tooltip,
-  Legend
-);
-
-// Chart defaults
-ChartJS.defaults.maintainAspectRatio = false;
-ChartJS.defaults.responsive = true;
-ChartJS.defaults.plugins.title.display = true;
-ChartJS.defaults.plugins.title.align = "start";
-ChartJS.defaults.plugins.title.font.size = 20;
-ChartJS.defaults.plugins.title.color = "black";
+import ChartComponent from './Chart';
 
 export const Visuals = () => {
+  const data = {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    datasets: [
+      {
+        label: 'My First dataset',
+        backgroundColor: 'rgba(75,192,192,0.4)',
+        borderColor: 'rgba(75,192,192,1)',
+        borderWidth: 1,
+        hoverBackgroundColor: 'rgba(75,192,192,0.6)',
+        hoverBorderColor: 'rgba(75,192,192,1)',
+        data: [65, 59, 80, 81, 56, 55, 40],
+      },
+    ],
+  };
+
+  const options = {
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+  };
+
   return (
-    <>
-    <h1 class = "main-heading">Monthly Revenue & Cost</h1>
-    <div style={{ 
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-      gap: '20px',
-      padding: '20px'
-    }}>
-      <div className="dataCard revenueCard" style={{ height: '400px', padding: '20px' }}>
-        <Line
-          data={{
-            labels: revenueData.map((data) => data.label),
-            datasets: [
-              {
-                label: "Revenue",
-                data: revenueData.map((data) => data.revenue),
-                backgroundColor: "#064FF0",
-                borderColor: "#064FF0",
-              },
-              {
-                label: "Cost",
-                data: revenueData.map((data) => data.cost),
-                backgroundColor: "#FF3030",
-                borderColor: "#FF3030",
-              },
-            ],
-          }}
-          options={{
-            elements: {
-              line: {
-                tension: 0.5,
-              },
-            },
-            plugins: {
-              title: {
-                text: "Monthly Revenue & Cost",
-              },
-            },
-          }}
-        />
-      </div>
-
-      <div className="dataCard customerCard" style={{ height: '400px', padding: '20px' }}>
-        <Bar
-          data={{
-            labels: sourceData.map((data) => data.label),
-            datasets: [
-              {
-                label: "Count",
-                data: sourceData.map((data) => data.value),
-                backgroundColor: [
-                  "rgba(43, 63, 229, 0.8)",
-                  "rgba(250, 192, 19, 0.8)",
-                  "rgba(253, 135, 135, 0.8)",
-                ],
-                borderRadius: 5,
-              },
-            ],
-          }}
-          options={{
-            plugins: {
-              title: {
-                text: "Revenue Source",
-              },
-            },
-          }}
-        />
-      </div>
-
-      <div className="dataCard categoryCard" style={{ height: '400px', padding: '20px' }}>
-        <Doughnut
-          data={{
-            labels: sourceData.map((data) => data.label),
-            datasets: [
-              {
-                label: "Count",
-                data: sourceData.map((data) => data.value),
-                backgroundColor: [
-                  "rgba(43, 63, 229, 0.8)",
-                  "rgba(250, 192, 19, 0.8)",
-                  "rgba(253, 135, 135, 0.8)",
-                ],
-                borderColor: [
-                  "rgba(43, 63, 229, 0.8)",
-                  "rgba(250, 192, 19, 0.8)",
-                  "rgba(253, 135, 135, 0.8)",
-                ],
-              },
-            ],
-          }}
-          options={{
-            plugins: {
-              title: {
-                text: "Revenue Sources",
-              },
-            },
-          }}
-        />
-      </div>
+    <div style={{ height: '400px', width: '600px' }}>
+      <ChartComponent data={data} options={options} />
     </div>
-    </>
   );
 };
