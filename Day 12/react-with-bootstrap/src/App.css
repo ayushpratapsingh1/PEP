@@ -1,0 +1,13 @@
+.hero-section {
+  height: 100vh;
+  background: linear-gradient(to right, #000428, #01213d); /* Cool gradient */
+}
+
+.hero-image {
+  width: 100px;
+}
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
