@@ -4,7 +4,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import './App.css';
 import Footer from './pages/Footer';
-import Blog from './pages/blog/blog';
+import Blog from './pages/blog/Blog';
 import Post from './pages/blog/Post';
 function App() {
   return (
