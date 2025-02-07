@@ -13,7 +13,7 @@
   color: #61dafb;
 }
 
-nav {
+.app {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -21,15 +21,15 @@ nav {
   background-color: #282c34;
 }
 
-nav a {
+.app a {
   color: white;
   text-decoration: none;
-  transition: color 0.4s, box-shadow 0.4s;
   padding: 0.5rem 1rem;
 }
 
-nav a:hover {
-  color: #61dafb;
-  background-color: #282c34;
+.app a:hover {
+  color: white;
+  background-color: #61dafb;
+  transition: all 0.4s;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
