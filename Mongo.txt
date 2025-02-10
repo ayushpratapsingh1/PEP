@@ -1,0 +1,21 @@
+db.users.find({ salary: { $gtq: 40000 } })
+db.users.find({ salary: { $gt: 40000 } })
+db.users.find({ salary: { $ltq: 40000 } })
+db.users.find({ salary: { $lt: 40000 } })
+
+db.users.insertMany([
+{ name: "John Doe", age: 32, status: "active", email: "john@example.com", salary: 50000, hobbies: ["reading", "traveling"] },
+{ name: "Jane Smith", age: 28, status: "inactive", email: "jane@example.com", salary: 60000, hobbies: ["painting", "hiking"] },
+{ name: "Michael Brown", age: 45, status: "active", salary: 70000, hobbies: ["gaming"] },
+{ name: "Emily Davis", age: 17, status: "inactive", email: "emily@example.com", salary: 30000, hobbies: ["coding"] },
+{ name: "Chris Johnson", age: 22, status: "active", email: "chris@example.com", salary: 45000, hobbies: ["traveling", "music"] }
+]);
+
+db.users.find({ status: { $eq: "active" } })
+
+db.users.find({ name: { $in:["Jane Smith" , "John Doe"] } } )
+db.users.find({ name: { $nin:["Jane Smith" , "John Doe"] } } )
+
+db.users.find({ $and:[{ age: {$gt: 25}},{status:{$eq:"active"}}]})
+
+db.users.find({ $or:[{ age: {$gt: 25}},{status:{$eq:"active"}}]})
